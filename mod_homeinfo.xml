@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ========================================================================== -->
+<!-- Product    : Home information (mod_homeinfo)                               -->
+<!-- Date       : See below                                                     -->
+<!-- Copyright  : See below                                                     -->
+<!-- Contact    : dev@kjeholt.se                                                -->
+<!-- Licence    : ...                                                           -->
+<!-- ========================================================================== -->
+<!-- File       : mod_homeinfo.xml                                              -->
+<!-- Version    : See below                                                     -->
+<!-- Author     : Björn Kjeholt                                                 -->
+<!-- ========================================================================== -->
+<extension type="module" version="1.7" client="site" method="upgrade">
+	<name>Home Information Control Module</name>
+	
+	<creationDate>2014-01-13</creationDate>
+	<author>Björn Kjeholt</author>
+	<copyright>Copyright (C) Kjeholt Engineering 2014. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>dev@kjeholt.se</authorEmail>
+	<authorUrl>http://dev.kjeholt.se</authorUrl>
+	
+	<version>0.3.5w</version>
+	
+	<description>Home Information presentation module</description>
+	<languages>
+		  <folder>language</folder>
+	</languages>
+
+	<files>
+		<filename module="mod_homeinfo">mod_homeinfo.php</filename>
+		<filename>mod_homeinfo.xml</filename>
+		<filename>index.html</filename>
+		<folder>helpers</folder>
+		<folder>controllers</folder>
+		<folder>tmpl</folder>
+		<folder>scripts</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="output_selection">
+				<field name="homeinfo_view" 
+				       type="radio" 
+				       default="0" 
+				       label="Choose what to display" 
+				       description="Choose what shall be visible on the homepage">
+					
+					<option value="0">List of temperatures\n</option>
+					<option value="1">List of devices(Summary)\n</option>
+					<option value="2">List of devices(Full list)\n</option>
+					<option value="3">List of sensors\n</option>
+					<option value="4">Current sensor value\n</option>
+					<option value="5">Power statistics&lt.br&gt.</option>
+					<option value="6">Temperature statistics\n</option>
+					<option value="7">Current power dissipation\n</option>
+				</field>
+				<field name="homeinfo_outdoor_sensor_id" 
+				       type="text" default="0" 
+				       label="MOD_HOMEINFO_PARAM_SENSOR_ID_FIELD_LABEL"
+				       decription="MOD_HOMEINFO_PARAM_SENSOR_ID_FIELD_DESC"/>
+				<field name="homeinfo_power_total" 
+				       type="text" default="0" 
+				       label="MOD_HOMEINFO_PARAM_POWER_TOTAL_FIELD_LABEL"
+				       decription="MOD_HOMEINFO_PARAM_POWER_TOTAL_FIELD_DESC"/>
+				<field name="homeinfo_power_heat" 
+				       type="text" default="0" 
+				       label="MOD_HOMEINFO_PARAM_POWER_SUB_HEAT_FIELD_LABEL"
+				       decription="MOD_HOMEINFO_PARAM_POWER_SUB_HEAT_FIELD_DESC"/>
+			</fieldset>
+			<fieldset name="basic">
+				<field name="moduleclass_sfx" 
+				       type="text" default="" 
+				       label="Module Class Suffix" 
+				       description="Suffix for individual css styling" />
+				<field name="limit" 
+				       type="text" 
+				       default="10" 
+				       label="Limit Displayed Users" 
+				       description="Limit Displayed Users" />
+				<field name="user_id" 
+				       type="radio" 
+				       default="1" 
+				       label="Display user ID" 
+				       description="Display user ID">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="user_name" 
+				       type="radio" 
+				       default="1" 
+				       label="Display Name" 
+				       description="Display Name">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="user_username" 
+				       type="radio" 
+				       default="1" 
+				       label="Display Username" description="Display 
+				       Username">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
